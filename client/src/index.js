@@ -23,11 +23,11 @@ ReactDOM.render(
             <div className='ui container'>
                 <div className="ui three item menu">
                     <NavLink exact className="item"  to='/'>HOME</NavLink>
-                    <NavLink exact className="item"  to='/game'>GAME</NavLink>
+                    <NavLink exact className="item"  to='/games'>GAME</NavLink>
                     <NavLink className="item"  to='/new'>ADD NEW GAME</NavLink>
                 </div>
                 <Route path='/' exact component={ App }/>
-                <Route path='/game'   component={ Game }/>
+                <Route path='/games'   component={ Game }/>
                 <Route path='/new'  component={ New }/>
             </div>
         </Router>

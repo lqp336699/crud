@@ -9,13 +9,23 @@ class Game extends Component{
             <p>Three are no games yet in collection</p>
         );
         const gamesList =(
-            <p>
+            <div className="ui five cards">
                 {this.props.games.map(game=>{
                     return(
-                        <div>{game.text}</div>
+                            <div className="card">
+                                <div className="image">
+                                    <img alt={game.name} title={game.name} src={game.cover} />
+                                </div>
+                                <div className="extra content">
+                                    <div className="ui two buttons">
+                                        <div className="ui basic green button">删除</div>
+                                        <div className="ui basic red button">删除</div>
+                                    </div>
+                                </div>
+                            </div>
                     )
                 })}
-            </p>
+            </div>
         );
         return(
             <div>

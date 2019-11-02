@@ -9,7 +9,7 @@ export const setGames = (games) => {
 
 export const fetchGame = ()=>{
   return dispatch =>{
-      fetch('/api/games')
+     return fetch('/api/games')
           .then(res => res.json())
           .then(data => dispatch(setGames(data.result)))
   }
