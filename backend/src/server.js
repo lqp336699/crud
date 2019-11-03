@@ -18,8 +18,7 @@ mongodb.MongoClient.connect(url,  { useUnifiedTopology: true }, function(err, db
     app.get('/api/games',(req,res)=>{
         dbo.collection("games"). find({}).toArray(function(err, result) { // 返回集合中所有数据
             if (err) throw err;
-            console.log(result);
-            res.json({result});
+            return res.json({result});
         });
     });
 
