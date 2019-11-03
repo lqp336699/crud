@@ -2,6 +2,8 @@ import React,{ Component } from 'react';
 import { connect } from 'react-redux'
 import propTypes from 'prop-types'
 import { fetchGame } from './../actions/index'
+import { deleteGame } from "../actions/delete";
+import { Link,NavLink } from 'react-router-dom'
 
 class Game extends Component{
     render() {
@@ -12,14 +14,14 @@ class Game extends Component{
             <div className="ui five cards">
                 {this.props.games.map(game=>{
                     return(
-                            <div className="card">
+                            <div className="card" key={game._id}>
                                 <div className="image">
                                     <img alt={game.name} title={game.name} src={game.cover} />
                                 </div>
                                 <div className="extra content">
                                     <div className="ui two buttons">
-                                        <div className="ui basic green button">删除</div>
-                                        <div className="ui basic red button">删除</div>
+                                        <NavLink to={`/game/${game._id}`} className="ui basic green button">编辑</NavLink>
+                                        <div className="ui basic red button" onClick={ ()=>{this.deleteGame(game._id)} }>删除</div>
                                     </div>
                                 </div>
                             </div>
@@ -32,6 +34,10 @@ class Game extends Component{
                 { this.props.games.length===0? emptyMessage : gamesList}
             </div>
         )
+    };
+
+    deleteGame =(id)=>{
+        this.props.deleteGame(id);
     };
 
     componentDidMount() {
@@ -49,4 +55,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps,{ fetchGame }) (Game);
+export default connect(mapStateToProps,{ fetchGame,deleteGame }) (Game);

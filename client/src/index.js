@@ -9,6 +9,7 @@ import logger from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension"
 import { NavLink, BrowserRouter as Router, Route } from "react-router-dom"
 import Game from './components/games'
+import editGame from './components/editGame'
 import New from './components/new'
 import thunk from 'redux-thunk'
 
@@ -29,6 +30,7 @@ ReactDOM.render(
                 <Route path='/' exact component={ App }/>
                 <Route path='/games'   component={ Game }/>
                 <Route path='/new'  component={ New }/>
+                <Route path='/game/:id'  component={ editGame }/>
             </div>
         </Router>
     </Provider>,
