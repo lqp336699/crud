@@ -2,14 +2,16 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "babel.config.js",
   "dependencies": {
+<<<<<<< HEAD
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-react": "^7.6.3",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+=======
+>>>>>>> a556b59217e9572f113216980f97e8cfa76e333d
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "global": "^4.4.0",
@@ -17,12 +19,14 @@
     "nodemon": "^1.19.4"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.6.3"
+    "babel-preset-env": "^1.7.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node -- ./server.js"
+    "start": "node_modules/.bin/nodemon --exec babel-node src/server.js",
+    "build": "babel -d ./build ./src"
   },
-  "author": "",
-  "license": "ISC"
+  "author": ""
 }
