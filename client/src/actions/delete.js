@@ -10,12 +10,12 @@ export const gameDelete=(id)=>{
 
 export const deleteGame =(id)=>{
     return dispatch =>{
-       return fetch(`/game/${id}`,
+       return fetch(`/api/game/${id}`,
            {
-               method:'post',
-               headers:{
-                   'content-type' : 'application/json'
-               }
+               method:'delete',
+               headers: new Headers({
+                   'Content-Type': 'application/json'
+               })
            }
            )
            .then( dispatch(gameDelete(id)))
