@@ -42,7 +42,6 @@ mongodb.MongoClient.connect(url,  { useUnifiedTopology: true }, function(err, db
     app.delete('/game/:id',(req,res)=>{
         dbo.collection("games").deleteOne(req.params._id, function(err, obj) {
             if (err) throw err;
-            console.log("文档删除成功");
         });
     })
 
