@@ -13,7 +13,7 @@ export const deleteGame =(id)=>{
        return fetch(`/api/game/${id}`,
            {
                method:'delete',
-               headers: new Headers({
+               headers: ({
                    'Content-Type': 'application/json'
                })
            }

@@ -40,9 +40,10 @@ mongodb.MongoClient.connect(url,  { useUnifiedTopology: true }, function(err, db
     });
 
 
-    app.delete('/api/game/:id',(req,res)=>{
-        dbo.collection("games").deleteOne(req.params._id, function(err, obj) {
+    app.delete('/api/game/:_id',(req,res)=>{
+        dbo.collection("games").deleteOne({_id:new mongodb.ObjectID(req.params._id)}, function(err, obj) {
             if (err) throw err;
+            res.json({ })
         });
     })
 
