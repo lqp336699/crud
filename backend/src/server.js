@@ -18,8 +18,7 @@ mongodb.MongoClient.connect(url,  { useUnifiedTopology: true }, function(err, db
     app.get('/api/games',(req,res)=>{
         dbo.collection("games"). find({}).toArray(function(err, result) { // 返回集合中所有数据
             if (err) throw err;
-            console.log(result);
-            return res.json({result});
+            res.json({result});
         });
     });
 
@@ -44,7 +43,7 @@ mongodb.MongoClient.connect(url,  { useUnifiedTopology: true }, function(err, db
     app.delete('/game/:id',(req,res)=>{
         dbo.collection("games").deleteOne(req.params._id, function(err, obj) {
             if (err) throw err;
-            return;
+            res.json('0')
         });
     })
 
